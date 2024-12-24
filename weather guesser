@@ -1,0 +1,45 @@
+import random
+
+def weather_guesser():
+    # List of possible weather conditions with corresponding numbers
+    weather_conditions = {
+        1: "sunny",
+        2: "rainy",
+        3: "cloudy",
+        4: "snowy",
+        5: "windy",
+        6: "foggy",
+        7: "stormy",
+        8: "hazy",
+        9: "overcast",
+        10: "hot"
+    }
+    
+    # Randomly select a weather condition
+    actual_weather_number = random.randint(1, len(weather_conditions))
+    actual_weather = weather_conditions[actual_weather_number]
+
+    print("Welcome to the Weather Guesser!")
+    print("Guess the weather condition for today by entering the corresponding number.")
+    print("You have 1 attempt to guess it.")
+    print("Possible conditions:")
+    for number, condition in weather_conditions.items():
+        print(f"{number}: {condition}")
+
+    # Get the player's guess
+    try:
+        guess = int(input("Enter the number of your guess: "))
+
+        # Check the guess
+        if guess not in weather_conditions:
+            print("Invalid input! Please enter a valid number corresponding to the weather condition.")
+        elif guess == actual_weather_number:
+            print(f"Congratulations! You've guessed the weather correctly: {actual_weather}.")
+        else:
+            print("Just look outside.")
+    except ValueError:
+        print("Invalid input! Please enter a number.")
+
+# Run the game
+if __name__ == "__main__":
+    weather_guesser() 
