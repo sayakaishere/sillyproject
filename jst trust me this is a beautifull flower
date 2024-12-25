@@ -1,0 +1,43 @@
+import turtle
+
+# Set up the screen
+screen = turtle.Screen()
+screen.bgcolor("black")
+
+# Create a turtle named flower
+flower = turtle.Turtle()
+flower.speed(100)
+
+# Function to draw a petal
+def draw_petal():
+    flower.color("green", "blue") 
+    flower.begin_fill()
+    flower.circle(100, 60)
+    flower.left(120)
+    flower.circle(100, 60)
+    flower.left(120)
+    flower.end_fill()
+
+
+# Function to draw the center of the flower
+def draw_center():
+    flower.color("cyan", "red")
+    flower.begin_fill()
+    flower.circle(20)
+    flower.end_fill()
+
+# Draw the flower petals
+for _ in range(12):
+    draw_petal()
+    flower.right(30)
+
+# Draw the center of the flower
+flower.penup()
+flower.goto(0, -20)
+flower.pendown()
+draw_center()
+
+
+# Hide the turtle and display the window
+flower.hideturtle()
+turtle.done()
